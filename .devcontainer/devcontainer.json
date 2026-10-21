@@ -1,0 +1,31 @@
+{
+  "name": "Python Data Science (uv + Jupyter)",
+  "image": "mcr.microsoft.com/devcontainers/python:3.12",
+  "features": {
+    "ghcr.io/jsburckhardt/devcontainer-features/uv:1": {}
+  },
+  "containerEnv": {
+    "UV_LINK_MODE": "copy",
+    "UV_PROJECT_ENVIRONMENT": "${workspaceFolder}/.venv"
+  },
+  "forwardPorts": [8888],
+  "postCreateCommand": "uv venv && uv pip install pandas numpy jupyterlab notebook",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python"
+      },
+      "extensions": [
+        "ms-python.python",
+        "ms-toolsai.jupyter",
+        "charliermarsh.ruff"
+      ]
+    }
+  },
+  "portsAttributes": {
+    "8888": {
+      "label": "JupyterLab Server",
+      "onAutoForward": "openPreview"
+    }
+  }
+}
