@@ -1,0 +1,19 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Show Jupyter server URL",
+      "type": "shell",
+      "command": "bash .devcontainer/start-jupyter.sh && uv run jupyter server list | sed -E 's#http://[^:]+:8888/#http://localhost:8888/#'",
+      "presentation": {
+        "reveal": "always",
+        "focus": false,
+        "panel": "dedicated",
+        "clear": true
+      },
+      "runOptions": {
+        "runOn": "folderOpen"
+      }
+    }
+  ]
+}
